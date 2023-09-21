@@ -1,3 +1,4 @@
+# using the googlemaps module, tis program gets the latitude and longitde of the inserted address
 import googlemaps
 
 #Store API key for usage

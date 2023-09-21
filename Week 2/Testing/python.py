@@ -1,3 +1,5 @@
+#utsing googlemaps there are varios functions that allow for google API functionalities and the development of various features
+
 import googlemaps
 from datetime import datetime
 
