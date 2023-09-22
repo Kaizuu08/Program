@@ -2,14 +2,14 @@
 #information from https://www.digitalocean.com/community/tutorials/how-to-create-your-first-web-application-using-flask-and-python-3
 #and https://www.youtube.com/watch?v=GHvj1ivQ7ms&t=180s&ab_channel=CodeVoid for virtual environment
 
-from flask import Flask
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return "Hello, World!"
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
