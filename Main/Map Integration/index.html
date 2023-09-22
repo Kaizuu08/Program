@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marking USC Campus</title>
+    <!-- The callback parameter is required, so we use console.debug as a noop -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body>
+    <gmp-map center="-26.716821670532227,153.0657958984375" zoom="14" map-id="DEMO_MAP_ID">
+      <gmp-advanced-marker position="-26.716821670532227,153.0657958984375" title="My location">
+      </gmp-advanced-marker>
+    </gmp-map>
+  </body>
+</html>
