@@ -6,3 +6,5 @@ the program utilises tkintermapview an open source widget for tkinter
 https://pypi.org/project/tkintermapview/
 
 pip install tkintermapview
+
+libraries also used are pandas and tkinter
