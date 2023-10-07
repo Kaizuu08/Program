@@ -2,16 +2,19 @@ import tkinter
 from tkintermapview import TkinterMapView
 import pandas as pd
 
-# Load the data from the CSV file
+## loadingg data as data
 data = pd.read_csv("data.csv")
 
-# Now, you can extract latitude and longitude columns
-latitudes = data["Latitude"]
-longitudes = data["Longitude"]
+## declaring stores for latitude and longitude
+locations = []
 
-# Example: Printing the first few rows to verify data loading
-print(data.head())
+## extracting relevant data from data.csv
+for index, row in data.iterrows():
+    latitude = row["Latitude"]
+    longitude = row["Longitude"]
+    locations.append((latitude, longitude))
 
+print (locations[0][0])
 ## intialising the tkinter window
 root_tk = tkinter.Tk()
 root_tk.geometry("500x500")
@@ -22,6 +25,6 @@ map_widget = TkinterMapView(root_tk, width = 600, heigh=400, corner_radius=0)
 map_widget.pack(fill="both",expand = True)
 
 ## importing google resources
-#map_widget.set_position()
+map_widget.set_position(locations[0][0], locations[0][1])
 
 root_tk.mainloop()
