@@ -1,6 +1,17 @@
 import tkinter
 from tkintermapview import TkinterMapView
 import pandas as pd
+import googlemaps
+
+## google api
+api_key = "***REMOVED***" 
+gmaps = googlemaps.Client(key = api_key)
+
+## function to return distance between two points
+def calculate_distance():
+    origin = origin_var.get()
+    destination = destination_var.get()
+    pass
 
 ## function to zoom into selected location
 def zoom_to_location():
@@ -33,11 +44,29 @@ root_tk.geometry("800x600")
 root_tk.title("Google Maps")
 
 ## drop down to select location & search button
+location_label = tkinter.Label(root_tk, text="Select Location:")
+location_label.pack()
 location_var = tkinter.StringVar()
 location_dropdown = tkinter.OptionMenu(root_tk, location_var, *set(location[2] for location in locations))
 location_dropdown.pack()
 search_button = tkinter.Button(root_tk, text="Search", command=zoom_to_location)
 search_button.pack()
+
+## Buttons for determining location distances
+origin_label = tkinter.Label(root_tk, text="Select Origin:")
+origin_label.pack()
+origin_var = tkinter.StringVar()
+origin_dropdown = tkinter.OptionMenu(root_tk, origin_var, *set(location[2] for location in locations))
+origin_dropdown.pack()
+
+destination_label = tkinter.Label(root_tk, text="Select Destination:")
+destination_label.pack()
+destination_var = tkinter.StringVar()
+destination_dropdown = tkinter.OptionMenu(root_tk, destination_var, *set(location[2] for location in locations))
+destination_dropdown.pack()
+
+calculate_button = tkinter.Button(root_tk, text="Calculate Distance", command=calculate_distance)
+calculate_button.pack()
 
 ## displaying the tkintermap widgets
 map_widget = TkinterMapView(root_tk, width = 600, height=400, corner_radius=0)
