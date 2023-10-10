@@ -2,6 +2,18 @@ import tkinter
 from tkintermapview import TkinterMapView
 import pandas as pd
 
+## function to zoom into selected location
+def zoom_to_location():
+    selected_location = location_var.get()
+    for index, row in enumerate(locations):
+        latitude = row[0]
+        longitude = row[1]
+        name = row[2]
+        if name == selected_location:
+            map_widget.set_position(latitude, longitude)
+            map_widget.set_zoom(15)
+            break
+
 ## loadingg data as data
 data = pd.read_csv("data.csv")
 
@@ -10,23 +22,26 @@ locations = []
 
 ## extracting relevant data from data.csv
 for index, row in data.iterrows():
-    name = row["Location Name"]
+    location_name = row["Location Name"]
     latitude = row["Latitude"]
     longitude = row["Longitude"]
-    locations.append((latitude, longitude,name))
+    locations.append((latitude, longitude,location_name))
 
 ## intialising the tkinter window
 root_tk = tkinter.Tk()
-root_tk.geometry("500x500")
+root_tk.geometry("800x600")
 root_tk.title("Google Maps")
+
+## drop down to select location & search button
+location_var = tkinter.StringVar()
+location_dropdown = tkinter.OptionMenu(root_tk, location_var, *set(location[2] for location in locations))
+location_dropdown.pack()
+search_button = tkinter.Button(root_tk, text="Search", command=zoom_to_location)
+search_button.pack()
 
 ## displaying the tkintermap widgets
 map_widget = TkinterMapView(root_tk, width = 600, height=400, corner_radius=0)
 map_widget.pack(fill="both",expand = True)
-
-## set current widget position and zoom
-map_widget.set_position(locations[0][0], locations[0][1])  # the first station position
-map_widget.set_zoom(15)
 
 ## importing the data as markers
 markers = {}  # Create an empty dictionary to store markers
