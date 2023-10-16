@@ -4,7 +4,7 @@ import pandas as pd
 import googlemaps
 
 ## google api
-api_key = "***REMOVED***" 
+api_key = "AIzaSyCqubcCK_1D3asTroRdtQPVrvV3VzmYwgY" 
 gmaps = googlemaps.Client(key = api_key)
 
 ## function to return distance between two points
