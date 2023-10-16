@@ -1,3 +1,0 @@
-Python Library For Google API:
-https://github.com/googlemaps/google-maps-services-python
-https://pypi.org/project/googlemaps/
