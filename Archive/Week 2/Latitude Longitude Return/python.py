@@ -2,7 +2,7 @@
 import googlemaps
 
 #Store API key for usage
-gmaps = googlemaps.Client(key="AIzaSyCqubcCK_1D3asTroRdtQPVrvV3VzmYwgY")
+gmaps = googlemaps.Client(key="***REMOVED***")
 
 # Perform geocoding inserting address
 geocode_result = gmaps.geocode('90 Sippy Downs Dr, Sippy Downs, QLD')
