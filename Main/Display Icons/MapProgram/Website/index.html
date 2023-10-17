@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Interactive Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1>Interactive Moreton Bay Map</h1>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul>
+            <li><a href="#Road-Closures" class="active" onclick="loadMap('http://127.0.0.1:5000/map')">Road Closures</a></li>
+            <li><a href="#Navigation" id="navigationLink" onclick="showNavigation()">Navigation</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <iframe id="mapFrame" src="http://127.0.0.1:5000/map" width="1450" height="500" frameborder="0"></iframe>
+        <div id="navigationForm" style="display: none;">
+            <h2>Enter Start and End Addresses for Navigation</h2>
+            <form>
+                Start Address: <input type="text" name="startAddress"><br>
+                End Address: <input type="text" name="endAddress"><br>
+                <input type="submit" value="Navigate">
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    function loadMap(mapURL) {
+        var iframe = document.getElementById("mapFrame");
+        iframe.src = mapURL;
+        hideNavigationForm();
+    }
+
+    function showNavigation() {
+        var navigationForm = document.getElementById("navigationForm");
+        navigationForm.style.display = "block";
+        loadMap('http://127.0.0.1:5000/navigation'); // Load the navigation map when showing the form
+    }
+
+    function hideNavigationForm() {
+        var navigationForm = document.getElementById("navigationForm");
+        navigationForm.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

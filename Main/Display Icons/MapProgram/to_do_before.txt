@@ -3,13 +3,8 @@ Make sure the required files are within the same directory
 Required Libraries:
 pip install flask
 pip install folium
-pip install pandas
+pip install panas
 pip install openrouteservice
 
 Create an account at the following link and generate an API key:
 https://openrouteservice.org/
-store API key in text file called "ors_api_key.txt"
-
-Create an API account for Google API, and generate API key:
-https://developers.google.com/maps
-store API key in text file called "google_api_key"
