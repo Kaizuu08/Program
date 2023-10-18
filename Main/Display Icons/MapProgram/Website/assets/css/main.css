@@ -3139,7 +3139,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#header {
-				padding: 4em 3em 0.1em 3em ;
+				padding: 0em 3em 0.1em 3em ;
 			}
 
 				#header.alt {
