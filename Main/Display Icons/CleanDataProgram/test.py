@@ -5,30 +5,23 @@ with open("google_api_key.txt", "r") as api_file:
     API_KEY = api_file.read().strip()
 
 class TestGeocodeAPI(unittest.TestCase):
-
-    def test_successful_geocoding(self):
-        # Test a successful geocoding request
+    
+    def test_valid_address(self):
+    # Test with a valid address
         address = "1600 Amphitheatre Parkway, Mountain View, CA"
-        data_type = "json"
-        result = extract_lat_lng(API_KEY, address, data_type)
+        result = extract_lat_lng(address)
+        self.assertIsNotNone(result)
         self.assertIsInstance(result, tuple)
         self.assertEqual(len(result), 2)
         self.assertIsInstance(result[0], float)
         self.assertIsInstance(result[1], float)
-
-    def test_failed_request(self):
-        # Test when the API request fails
-        address = "Invalid Address"
-        data_type = "json"
-        result = extract_lat_lng(API_KEY, address, data_type)
-        self.assertEqual(result, {})
-
-    def test_missing_latlng(self):
-        # Test when the API response is missing latitude and longitude
-        address = "Some Location"
-        data_type = "json"
-        result = extract_lat_lng(API_KEY, address, data_type)
-        self.assertEqual(result, (None, None))
+        
+    def test_invalid_address(self):
+        # Test with an invalid address (e.g., "ThisIsNotAnAddress")
+        address = "john"
+        result = extract_lat_lng(address)
+        expected = (None, None)
+        self.assertEqual(result, expected)
 
 if __name__ == '__main__':
     unittest.main()
