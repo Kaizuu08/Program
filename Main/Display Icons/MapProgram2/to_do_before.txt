@@ -1,0 +1,10 @@
+Make sure the required files are within the same directory
+
+Required Libraries:
+pip install flask
+pip install folium
+pip install panas
+pip install openrouteservice
+
+Create an account at the following link and generate an API key:
+https://openrouteservice.org/

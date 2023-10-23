@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Interactive Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1>Interactive Moreton Bay Map</h1>
+        </header>
+        <!-- Nav -->
+        <nav id="nav">
+            <h2>Enter Start and End Addresses</h2>
+            <form method="post" action="/navigation">
+                Start Address: <input type="text" name="startAddress" placeholder="1 Moreton Parade, Petrie QLD 4502"><br><br>
+                End Address: <input type="text" name="endAddress" placeholder="N Lakes Dr, North Lakes QLD"><br><br>
+                <input type="submit" value="Navigate">
+            </form>
+        </nav>
+        <!-- Rainfall Form -->
+        <div id="rainfallForm">
+            <form method="post" action="/submit">
+                <label for="rainfallAmount">Rainfall Amount (mm):</label>
+                <input type="number" name="rainfallAmount" id="rainfall_Amount" min="0" step="1" class="form-input"><br><br>
+                <input type="submit" value="Submit Rainfall" class="form-button">
+            </form>
+        </div>
+        <!-- Main -->
+        <div id="main">
+            <iframe id="mapFrame" src="{{ map_url }}" width="1500" height="610" frameborder="0"></iframe>   
+        </div>
+    </div>
+</body>
+</html>

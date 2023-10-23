@@ -1,0 +1,84 @@
+/* Reset some default styles */
+body, h1, h2, form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply styles to the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: #333;
+}
+
+/* Style the header */
+#header {
+    background-color: #1a1818;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Style the navigation section */
+#nav {
+    display: inline-block;
+    top: 20%;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 10px;
+    width: 40%;
+}
+
+/* Style the rainfall form */
+#rainfallForm {
+    display: inline-block;
+    top: 20%;
+    padding: 2em;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    width: 20%;
+}
+
+/* Style the form elements */
+form {
+    text-align: center;
+}
+
+/* Apply styles to text input fields with the form-input class */
+input.form-input[type="text"],
+input.form-input[type="number"] {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Apply styles to submit buttons with the form-button class */
+input.form-button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main content */
+#main {
+    margin: 2em;
+    padding: 2em;
+    background-color: #fff;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    height: 600px;
+    width: 1500px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
