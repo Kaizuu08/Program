@@ -1,5 +1,0 @@
-pip install pandas
-
-Create an API account for Google API, and generate API key:
-https://developers.google.com/maps
-store API key in text file called "google_api_key"
